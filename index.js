@@ -3,74 +3,119 @@ import inquirer from "inquirer";
 import colors from "colors";
 import fs from "fs";
 
-// TODO: Create an array of questions for user input
-// const questions = [];
-
-// console.log(prompt),
 // TODO: Create a function to write README file
 function writeToFile(data) {
   return `
+  # ${data.title}
+![GitHub License](https://img.shields.io/badge/license-${data.License})
+## Description
+
+${data.Description}
+
+## Table of Contents 
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [License](#license)
+- [Features](#features)
+- [Collaboration](#collaboration)
+
+## Installation
+
+${data.Installation}
+
+## Usage
+
+${data.Usage}
+
+# Contributor Code of Conduct
+
+${data.Contributors}
+
+## License
+
+${data.License}
+
+## Features
+
+${data.Features}
+
+## Collaboration
+
+
+GitHub: [${data.GitHub}](https://github.com/${data.GitHub})  
+
+Email: ${data.Email}
   
-  
+
+
   `;
 }
 
 // TODO: Create a function to initialize app
-function init(prompt) {
+function init() {
   inquirer
     .prompt([
-      { name: " fileName", type: "input", message: "What is your file name?" },
       {
-        name: "motivation",
+        name: "title",
         type: "input",
-        message: "What is your motivation?",
+        message: "What is the title of your project?",
       },
       {
-        name: "motivation",
+        name: "Description",
         type: "input",
-        message: "Why did you build this project?",
-      },
-      { name: "problems", type: "input", message: "What problems does it ?" },
-      { name: "learning", type: "input", message: "What did you learn?" },
-
-      {
-        name: " Description",
-        type: "input",
-        message: "What the description of your project?",
-      },
-      {
-        name: " Installation",
-        type: "input",
-        message: "What are the steps required to install your project? ",
-      },
-      {
-        name: " Usage",
-        type: "input",
-        message: "Provide instructions and examples for use.",
+        message:
+          "Provide a short description explaining the what, why, and how of your project.",
       },
 
       {
-        name: " Credits",
+        name: "Installation",
         type: "input",
-        message: "List of all your collaborators.",
+        message: "What are the steps required to install your project?",
       },
       {
-        name: " License",
+        name: "Usage",
+        type: "input",
+        message: "Provide instructions for testing.",
+      },
+      {
+        name: "Contributors",
+        type: "input",
+        message: "Whats the guideline for your Contributors",
+      },
+      {
+        name: "License",
         type: "list",
-        message: "What type of License will you be using?",
+        message: "What type of license will you be using?",
+        choices: ["MIT", "APACHE", "GNPL"],
+      },
+      {
+        name: "Features",
+        type: "input",
+        message: "List the features of your project.",
+      },
+      {
+        name: "GitHub",
+        type: "input",
+        message: "Whats your GitHub?",
+      },
+      {
+        name: "Email",
+        type: "input",
+        message: "Whats your Email?",
       },
     ])
     .then((data) => {
-      fs.writeFile("README.md"),
-        (error) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log("good job");
-          }
-        };
+      fs.writeFile("README.md", writeToFile(data), (error) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Congrats! Your README was generated!!");
+        }
+      });
     });
 }
-// console.log(data));
+
 // Function call to initialize app
 init();

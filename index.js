@@ -1,19 +1,20 @@
-// TODO: Include packages needed for this application
-import inquirer from "inquirer";
-import colors from "colors";
-import fs from "fs";
+// TODO: Import required packages for the application
+import inquirer from "inquirer"; // Inquirer is used for user input prompts
+import colors from "colors"; // Colors is used for styling console output (not utilized in this code)
+import fs from "fs"; // File System module is used for file operations
 
-// TODO: Create a function to write README file
+// TODO: Create a function to generate the README file content
 function writeToFile(data) {
+  // The 'data' parameter is expected to be an object containing user responses
   return `
-  # ${data.title}
-![GitHub License](https://img.shields.io/badge/license-${data.License})
-## Description
+  # ${data.title} // Title of the project extracted from the 'title' property of 'data'
+![GitHub License](https://img.shields.io/badge/license-${data.License}) // Displays the license badge using the 'License' property
 
-${data.Description}
+## Description
+${data.Description} // Description of the project extracted from the 'Description' property
 
 ## Table of Contents 
-
+// Links to different sections of the README for easy navigation
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
@@ -22,100 +23,93 @@ ${data.Description}
 - [Collaboration](#collaboration)
 
 ## Installation
-
-${data.Installation}
+${data.Installation} // Steps required to install the project from the 'Installation' property
 
 ## Usage
-
-${data.Usage}
+${data.Usage} // Instructions for using the project from the 'Usage' property
 
 # Contributor Code of Conduct
-
-${data.Contributors}
+${data.Contributors} // Guidelines for contributors from the 'Contributors' property
 
 ## License
-
-${data.License}
+${data.License} // License type from the 'License' property
 
 ## Features
-
-${data.Features}
+${data.Features} // Features of the project from the 'Features' property
 
 ## Collaboration
-
-
+// Links to GitHub and email for collaboration
 GitHub: [${data.GitHub}](https://github.com/${data.GitHub})  
-
-Email: ${data.Email}
-  
-
-
+Email: ${data.Email} // Email address from the 'Email' property
   `;
 }
 
-// TODO: Create a function to initialize app
+// TODO: Create a function to initialize the application
 function init() {
+  // Use inquirer to prompt the user for project details
   inquirer
     .prompt([
       {
-        name: "title",
-        type: "input",
-        message: "What is the title of your project?",
+        name: "title", // Variable name for project title input
+        type: "input", // Input type indicating user will provide a string
+        message: "What is the title of your project?", // Prompt message
       },
       {
-        name: "Description",
+        name: "Description", // Variable name for project description
         type: "input",
         message:
-          "Provide a short description explaining the what, why, and how of your project.",
+          "Provide a concise description explaining the what, why, and how of your project.",
       },
-
       {
-        name: "Installation",
+        name: "Installation", // Variable name for installation instructions
         type: "input",
         message: "What are the steps required to install your project?",
       },
       {
-        name: "Usage",
+        name: "Usage", // Variable name for usage instructions
         type: "input",
-        message: "Provide instructions for testing.",
+        message: "Provide instructions for usage.",
       },
       {
-        name: "Contributors",
+        name: "Contributors", // Variable name for contributor guidelines
         type: "input",
-        message: "Whats the guideline for your Contributors",
+        message: "What are the guidelines for your contributors?",
       },
       {
-        name: "License",
-        type: "list",
+        name: "License", // Variable name for license selection
+        type: "list", // Input type indicating a choice from a list
         message: "What type of license will you be using?",
-        choices: ["MIT", "APACHE", "GNPL"],
+        choices: ["MIT", "APACHE", "GNPL"], // Available choices for license
       },
       {
-        name: "Features",
+        name: "Features", // Variable name for project features
         type: "input",
         message: "List the features of your project.",
       },
       {
-        name: "GitHub",
+        name: "GitHub", // Variable name for GitHub username
         type: "input",
-        message: "Whats your GitHub?",
+        message: "What is your GitHub username?",
       },
       {
-        name: "Email",
+        name: "Email", // Variable name for email address
         type: "input",
-        message: "Whats your Email?",
+        message: "What is your email address?",
       },
     ])
     .then((data) => {
+      // Write the generated README content to 'README.md'
       fs.writeFile("README.md", writeToFile(data), (error) => {
         if (error) {
-          console.log(error);
+          console.log(error); // Log any errors that occur during the write process
         } else {
-          console.log("Congrats! Your README was generated!!");
+          console.log(
+            "Congratulations! Your README was successfully generated!"
+          ); // Confirm successful file generation
         }
       });
     });
 }
 
-// Function call to initialize app
-init();
+//  call function to initialize the application
+init(); // Starts the application by invoking the init function

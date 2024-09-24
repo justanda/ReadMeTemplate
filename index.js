@@ -7,14 +7,13 @@ import fs from "fs"; // File System module is used for file operations
 function writeToFile(data) {
   // The 'data' parameter is expected to be an object containing user responses
   return `
-  # ${data.title} // Title of the project extracted from the 'title' property of 'data'
-![GitHub License](https://img.shields.io/badge/license-${data.License}) // Displays the license badge using the 'License' property
-
+  # ${data.title} 
+![GitHub License](https://img.shields.io/badge/license-${data.License}) 
 ## Description
-${data.Description} // Description of the project extracted from the 'Description' property
+${data.Description} 
+
 
 ## Table of Contents 
-// Links to different sections of the README for easy navigation
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
@@ -23,24 +22,23 @@ ${data.Description} // Description of the project extracted from the 'Descriptio
 - [Collaboration](#collaboration)
 
 ## Installation
-${data.Installation} // Steps required to install the project from the 'Installation' property
+${data.Installation} 
 
 ## Usage
-${data.Usage} // Instructions for using the project from the 'Usage' property
+${data.Usage} 
 
 # Contributor Code of Conduct
-${data.Contributors} // Guidelines for contributors from the 'Contributors' property
+${data.Contributors} 
 
 ## License
-${data.License} // License type from the 'License' property
+${data.License} 
 
 ## Features
-${data.Features} // Features of the project from the 'Features' property
+${data.Features} 
 
 ## Collaboration
-// Links to GitHub and email for collaboration
 GitHub: [${data.GitHub}](https://github.com/${data.GitHub})  
-Email: ${data.Email} // Email address from the 'Email' property
+Email: ${data.Email} 
   `;
 }
 

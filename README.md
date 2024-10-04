@@ -1,13 +1,11 @@
-# ReadMeTemplate
 
-![GitHub License](https://img.shields.io/badge/license-MIT)
-
+  # Vehicle Generator 2024 
+![GitHub License](https://img.shields.io/badge/license-MIT) 
 ## Description
+The purpose of this is to create a vehicle generator that displays what ive learned in type script  and showcase what I have learned. What we have done is imported and implemented our ts files so they can function together  to deliver our end result in our command line.  We have wrote out some  of the functions to make this application complete. 
 
-I wrote this ReadMeTemplate to better assist the early stages in the project allowing me to stay consistent throughout my projects. I felt it was important to design this so i can focus on my build more while having a developed template in place I wont need to take time away from building to focus on this task it will already be generated.
 
-## Table of Contents
-
+## Table of Contents 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
@@ -16,26 +14,21 @@ I wrote this ReadMeTemplate to better assist the early stages in the project all
 - [Collaboration](#collaboration)
 
 ## Installation
-
-Ensure Node.js is installed on your system. Clone the repository, navigate to the ReadMeTemplate directory, and run the following command in your terminal: node index.js You will be prompted to answer several questions. Once completed, the README file will be generated!
+First we need to download vs code and node to your machine. Second your gonna want to pull up the file in your vs.code the file name is VehicleGenerator. Third you will open your command line in vs.code Fourth You will run the code "npm start" Fifth Youll be directed to a series of prompt, these prompts will genrate your vehicle based off your selections. You can opperate the vehicle and when finished print details and exit the program by tapping exit in the last prompt. 
 
 ## Usage
-
-Currently, no automated tests are included.
+Second your gonna want to pull up the file in 
 
 # Contributor Code of Conduct
-
-Contributors should follow the project's guidelines and provide clear instructions for any new features or updates. Be sure to explain the tools and resources used so everything stays organized and easy to understand.
+ your vs.code the file name is VehicleGenerator. Third you will open your command line in vs.code Fourth You will run the code "npm start" Fifth Youll be  
 
 ## License
-
-MIT
+MIT 
 
 ## Features
-
-Inquirer Package (via npm), FS (File System) Package (via npm)
+and exit the program by tapping exit in the last prompt. 
 
 ## Collaboration
-
 GitHub: [justanda](https://github.com/justanda)  
-Email: miranda.justin93@gmail.com
+Email: miranda.justin93@gmail.com 
+  
